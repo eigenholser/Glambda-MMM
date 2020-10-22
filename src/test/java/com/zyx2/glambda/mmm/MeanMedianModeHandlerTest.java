@@ -17,24 +17,32 @@ public class MeanMedianModeHandlerTest {
 
     @BeforeClass
     public static void createInput() throws IOException {
-        request = null;
+    	String body = "{\"data\": [1, 2, 3, 4, 5, 5, 5, 6]}";
+        request = new HttpRequest();
+        request.setBody(body);
     }
 
     private Context createContext() {
         TestContext ctx = new TestContext();
-
-        // TODO: customize your context here if needed.
         ctx.setFunctionName("MeanMedianModeFunction");
-
         return ctx;
     }
 
     @Test
-    public void testMeanMedianModeHandlerStatusCode() {
+    public void testMeanMedianModeHandlerStatusCodeOkay() {
         MeanMedianModeHandler handler = new MeanMedianModeHandler();
         Context ctx = createContext();
 
-        HttpResponse output = handler.handleRequest(request, ctx);
-        Assert.assertEquals("200", output.getStatusCode());
+        HttpResponse response = handler.handleRequest(request, ctx);
+        Assert.assertEquals("200", response.getStatusCode());
+    }
+    
+    @Test
+    public void testMeanMedianModeHandlerStatusCodeISE() {
+        MeanMedianModeHandler handler = new MeanMedianModeHandler();
+        Context ctx = createContext();
+
+        HttpResponse response = handler.handleRequest(new HttpRequest(), ctx);
+        Assert.assertEquals("500", response.getStatusCode());
     }
 }

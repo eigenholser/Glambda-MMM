@@ -10,7 +10,6 @@ public class MeanMedianMode {
 	}
 
 	public MeanMedianMode(float mean, float median, float mode) {
-		super();
 		this.mean = mean;
 		this.median = median;
 		this.mode = mode;
@@ -38,5 +37,10 @@ public class MeanMedianMode {
 
 	public void setMode(float mode) {
 		this.mode = mode;
+	}
+
+	@Override
+	public String toString() {
+		return "MeanMedianMode [mean=" + mean + ", median=" + median + ", mode=" + mode + "]";
 	}
 }

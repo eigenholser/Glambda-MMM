@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class HttpRequest {
 
-	Map<String, String> queryStringParameters;	
+	Map<String, String> queryStringParameters;
 	Map<String, String> pathParameters;
 	String body;
-	
+
 	public Map<String, String> getQueryStringParameters() {
 		return queryStringParameters;
 	}
@@ -15,7 +15,7 @@ public class HttpRequest {
 	public void setQueryStringParameters(Map<String, String> queryStringParameters) {
 		this.queryStringParameters = queryStringParameters;
 	}
-	
+
 	public Map<String, String> getPathParameters() {
 		return pathParameters;
 	}
@@ -27,10 +27,15 @@ public class HttpRequest {
 	public String getBody() {
 		return body;
 	}
+
 	public void setBody(String body) {
 		this.body = body;
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "HttpRequest [queryStringParameters=" + queryStringParameters + ", pathParameters=" + pathParameters
+				+ ", body=" + body + "]";
+	}
+
 }
