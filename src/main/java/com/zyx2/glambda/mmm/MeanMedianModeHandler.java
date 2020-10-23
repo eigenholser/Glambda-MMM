@@ -8,12 +8,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 public class MeanMedianModeHandler implements RequestHandler<HttpRequest, HttpResponse> {
-	private final static String BAD_REQUEST = "400";
-	private final static String INTERNAL_SERVER_ERROR = "500";
 	
 	@Override
 	public HttpResponse handleRequest(HttpRequest request, Context context) {
-		context.getLogger().log("HttpRequest: " + request + "\n");
+		context.getLogger().log("HttpRequest: " + request);
 		String errorMessage = "";
 
 		if (request != null) {
@@ -26,7 +24,7 @@ public class MeanMedianModeHandler implements RequestHandler<HttpRequest, HttpRe
 			} catch (JsonSyntaxException e) {
 				errorMessage = "Bad request body syntax";
 				context.getLogger().log(errorMessage + ": " + body);
-				return getErrorResponse(errorMessage, BAD_REQUEST);
+				return getErrorResponse(errorMessage, Constants.HTTP_BAD_REQUEST);
 			}
 			
 			context.getLogger().log("numberSeries " + numberSeries);
@@ -45,7 +43,7 @@ public class MeanMedianModeHandler implements RequestHandler<HttpRequest, HttpRe
 			errorMessage = "HttpRequest is null";
 		}
 		context.getLogger().log(errorMessage);
-		return getErrorResponse(errorMessage, INTERNAL_SERVER_ERROR);
+		return getErrorResponse(errorMessage, Constants.HTTP_BAD_REQUEST);
 	}
 	
 	private HttpResponse getErrorResponse(String errorMessage, String statusCode) {

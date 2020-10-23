@@ -36,10 +36,9 @@ public class Mode {
 		
 		// No mode. Each number occurs only once.
 		if (maxCount.equals(1)) {
-			return new ArrayList<Float>();
+			return mode;
 		}
 		
-		System.out.println("maxCount: " + maxCount);
 		for (Map.Entry<Float, Integer> entry : sortedNumberCount.entrySet()) {
 			Float key = entry.getKey();
 			Integer value = entry.getValue();

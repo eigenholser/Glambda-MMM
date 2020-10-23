@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 public class HttpResponse {
 
 	private String body;
-	private String statusCode = "200";
+	private String statusCode = Constants.HTTP_OK;
 	private Map<String, String> headers = new HashMap<String, String>();
 
 	public HttpResponse() {

@@ -24,6 +24,8 @@ contained in the array.
 
 ## Invoking the Lambda
 
+Assuming JSON request body is contained in file `data.json`:
+
     curl -v \
          -X POST \
          --header "Content-Type: application/json" \
