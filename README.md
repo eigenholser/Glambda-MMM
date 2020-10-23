@@ -21,3 +21,8 @@ An AWS Lambda that can compute mean, median, and mode of a series of numbers.
 Invoke the unit tests:
 
     mvn test
+
+Code coverage reports:
+
+    mvn jacoco:report
+    firefox target/site/jacoco/index.html
