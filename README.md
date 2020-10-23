@@ -18,8 +18,8 @@ contained in the array.
 
     {
         "mean": 15.666667,
-        "median":5.0,
-        "mode":[10.0]
+        "median": 5.0,
+        "mode": [10.0]
     }
 
 ## Invoking the Lambda
