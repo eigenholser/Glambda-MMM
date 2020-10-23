@@ -20,8 +20,15 @@ public class MedianTest {
     }
     
     @Test
-    public void testMedian() {
-    	Float median = Median.computeMedian(numbers);
+    public void testMedianEven() {
+    	Float median = Median.compute(numbers);
+    	Assert.assertTrue(median.equals(1f));
+    }
+    
+    @Test
+    public void testMedianOdd() {
+    	numbers.remove(3);
+    	Float median = Median.compute(numbers);
     	Assert.assertTrue(median.equals(1f));
     }
 }

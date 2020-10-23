@@ -21,7 +21,7 @@ public class MeanTest {
     
     @Test
     public void testMean() {
-    	Float mean = Mean.computeMean(numbers);
+    	Float mean = Mean.compute(numbers);
     	Assert.assertTrue(mean.equals(1f));
     }
 }

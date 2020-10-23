@@ -1,41 +1,43 @@
 package com.zyx2.glambda.mmm;
 
+import java.util.List;
+
 public class MeanMedianMode {
-	private float mean;
-	private float median;
-	private float mode;
+	private Float mean;
+	private Float median;
+	private List<Float> mode;
 
 	public MeanMedianMode() {
 
 	}
 
-	public MeanMedianMode(float mean, float median, float mode) {
+	public MeanMedianMode(Float mean, Float median, List<Float> mode) {
 		this.mean = mean;
 		this.median = median;
 		this.mode = mode;
 	}
 
-	public float getMean() {
+	public Float getMean() {
 		return mean;
 	}
 
-	public void setMean(float mean) {
+	public void setMean(Float mean) {
 		this.mean = mean;
 	}
 
-	public float getMedian() {
+	public Float getMedian() {
 		return median;
 	}
 
-	public void setMedian(float median) {
+	public void setMedian(Float median) {
 		this.median = median;
 	}
 
-	public float getMode() {
+	public List<Float> getMode() {
 		return mode;
 	}
 
-	public void setMode(float mode) {
+	public void setMode(List<Float> mode) {
 		this.mode = mode;
 	}
 
