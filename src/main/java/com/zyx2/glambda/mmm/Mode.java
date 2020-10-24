@@ -12,33 +12,39 @@ import java.util.Map.Entry;
 
 public class Mode {
 	public static List<Float> compute(List<Float> numbers) {
-		List<Float> mode = new ArrayList<Float>();
 		Map<Float, Integer> numberCount = new HashMap<Float, Integer>();
 
 		int n = numbers.size(), i, j;
 
 		for (i = 0; i < n; ++i) {
 			int count = 0;
+
 			for (j = 0; j < n; ++j) {
 				if (numbers.get(j).equals(numbers.get(i))) {
 					++count;
 				}
 			}
+
 			numberCount.put(numbers.get(i), count);
 		}
-		
+
 		Map<Float, Integer> sortedNumberCount = getSortedMapByValues(numberCount);
 		Integer maxCount = null;
 		Iterator<Float> iterator = sortedNumberCount.keySet().iterator();
+
+		// First item is always the maxCount.
 		if (iterator.hasNext()) {
 			maxCount = sortedNumberCount.get(iterator.next());
 		}
-		
-		// No mode. Each number occurs only once.
+
+		List<Float> mode = new ArrayList<Float>();
+
+		// Each number occurs only once. No mode.
 		if (maxCount.equals(1)) {
 			return mode;
 		}
-		
+
+		// All values with value equal to maxCount is valid mode.
 		for (Map.Entry<Float, Integer> entry : sortedNumberCount.entrySet()) {
 			Float key = entry.getKey();
 			Integer value = entry.getValue();
@@ -46,23 +52,31 @@ public class Mode {
 				mode.add(key);
 			}
 		}
+
 		return mode;
 	}
 
-	private static <K extends Comparable<K>, V extends Comparable<V>> Map<K, V> getSortedMapByValues(final Map<K, V> map) {
+	/**
+	 * Sort map by value in descending order.
+	 * 
+	 * @param map
+	 * @return sorted map.
+	 */
+	private static <K extends Comparable<K>, V extends Comparable<V>> Map<K, V> getSortedMapByValues(
+			final Map<K, V> map) {
 		Map<K, V> mapSortedByValues = new LinkedHashMap<K, V>();
 
-		// Get all the entries from the original map and put it in a List
+		// Get all the entries from the original map and put it in a List.
 		List<Map.Entry<K, V>> list = new ArrayList<Entry<K, V>>(map.entrySet());
 
-		// Sort the entries based on the value by custom Comparator
+		// Sort the entries based on the value by custom Comparator.
 		Collections.sort(list, new Comparator<Map.Entry<K, V>>() {
 			public int compare(Entry<K, V> entry1, Entry<K, V> entry2) {
 				return entry2.getValue().compareTo(entry1.getValue());
 			}
 		});
 
-		// Put all sorted entries in LinkedHashMap
+		// Put all sorted entries in LinkedHashMap.
 		for (Map.Entry<K, V> entry : list)
 			mapSortedByValues.put(entry.getKey(), entry.getValue());
 

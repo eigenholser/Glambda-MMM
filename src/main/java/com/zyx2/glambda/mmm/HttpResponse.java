@@ -14,36 +14,29 @@ public class HttpResponse {
 	public HttpResponse() {
 		this.headers.put("Content-Type", "application/json");
 	}
-	
+
 	public HttpResponse(ApiResult result, String statusCode) {
 		this();
 		this.statusCode = statusCode;
-		
+
 		Gson gson = new Gson();
 		this.body = gson.toJson(result);
 	}
-	
+
 	public String getBody() {
 		return body;
-	}
-
-	public void setBody(String body) {
-		this.body = body;
 	}
 
 	public String getStatusCode() {
 		return statusCode;
 	}
 
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
-	}
-
 	public Map<String, String> getHeaders() {
 		return headers;
 	}
 
-	public void setHeaders(Map<String, String> headers) {
-		this.headers = headers;
+	@Override
+	public String toString() {
+		return "HttpResponse [body=" + body + ", statusCode=" + statusCode + ", headers=" + headers + "]";
 	}
 }

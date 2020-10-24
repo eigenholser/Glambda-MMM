@@ -12,10 +12,6 @@ public class NumberSeries {
 		return data;
 	}
 
-	public void setData(List<Float> data) {
-		this.data = data;
-	}
-
 	@Override
 	public String toString() {
 		return "NumberSeries [data=" + data + "]";

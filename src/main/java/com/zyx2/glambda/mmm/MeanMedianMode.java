@@ -21,24 +21,12 @@ public class MeanMedianMode {
 		return mean;
 	}
 
-	public void setMean(Float mean) {
-		this.mean = mean;
-	}
-
 	public Float getMedian() {
 		return median;
 	}
 
-	public void setMedian(Float median) {
-		this.median = median;
-	}
-
 	public List<Float> getMode() {
 		return mode;
-	}
-
-	public void setMode(List<Float> mode) {
-		this.mode = mode;
 	}
 
 	@Override

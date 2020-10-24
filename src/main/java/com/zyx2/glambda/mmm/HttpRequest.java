@@ -12,22 +12,15 @@ public class HttpRequest {
 		return queryStringParameters;
 	}
 
-	public void setQueryStringParameters(Map<String, String> queryStringParameters) {
-		this.queryStringParameters = queryStringParameters;
-	}
-
 	public Map<String, String> getPathParameters() {
 		return pathParameters;
-	}
-
-	public void setPathParameters(Map<String, String> pathParameters) {
-		this.pathParameters = pathParameters;
 	}
 
 	public String getBody() {
 		return body;
 	}
 
+	// Needed for tests.
 	public void setBody(String body) {
 		this.body = body;
 	}

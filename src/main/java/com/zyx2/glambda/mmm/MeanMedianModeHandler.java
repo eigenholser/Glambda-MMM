@@ -22,7 +22,7 @@ public class MeanMedianModeHandler implements RequestHandler<HttpRequest, HttpRe
 			try {
 				numberSeries = gson.fromJson(body, NumberSeries.class);
 			} catch (JsonSyntaxException e) {
-				errorMessage = "Bad request body syntax";
+				errorMessage = "Bad request body syntax.";
 				context.getLogger().log(errorMessage + ": " + body);
 				return getErrorResponse(errorMessage, Constants.HTTP_BAD_REQUEST);
 			}
@@ -35,13 +35,13 @@ public class MeanMedianModeHandler implements RequestHandler<HttpRequest, HttpRe
 				Float median = Median.compute(numbers);
 				List<Float> mode = Mode.compute(numbers);
 
-				return new HttpResponse(new ApiResult("Success", new MeanMedianMode(mean, median, mode)),
+				return new HttpResponse(new ApiResult("Success.", new MeanMedianMode(mean, median, mode)),
 						Constants.HTTP_OK);
 			} else {
-				errorMessage = "numberSeries is null";
+				errorMessage = "numberSeries is null.";
 			}
 		} else {
-			errorMessage = "HttpRequest is null";
+			errorMessage = "HttpRequest is null.";
 		}
 		context.getLogger().log(errorMessage);
 		return getErrorResponse(errorMessage, Constants.HTTP_BAD_REQUEST);
