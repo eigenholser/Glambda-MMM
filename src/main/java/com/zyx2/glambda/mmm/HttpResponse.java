@@ -12,14 +12,15 @@ public class HttpResponse {
 	private Map<String, String> headers = new HashMap<String, String>();
 
 	public HttpResponse() {
-		super();
 		this.headers.put("Content-Type", "application/json");
 	}
 	
-	public HttpResponse(MeanMedianMode mmm) {
+	public HttpResponse(ApiResult result, String statusCode) {
 		this();
+		this.statusCode = statusCode;
+		
 		Gson gson = new Gson();
-		this.body = gson.toJson(mmm);
+		this.body = gson.toJson(result);
 	}
 	
 	public String getBody() {
