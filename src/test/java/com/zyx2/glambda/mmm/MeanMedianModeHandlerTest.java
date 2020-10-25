@@ -49,7 +49,7 @@ public class MeanMedianModeHandlerTest {
 	}
 
 	@Test
-	public void testMeanMedianModeHandlerStatusCodeISE() {
+	public void testMeanMedianModeHandlerStatusCodeError() {
 		MeanMedianModeHandler handler = new MeanMedianModeHandler();
 		Context ctx = createContext();
 
