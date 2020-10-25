@@ -8,7 +8,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 public class MeanMedianModeHandler implements RequestHandler<HttpRequest, HttpResponse> {
-
+    private static Gson gson = new Gson();
+    
 	@Override
 	public HttpResponse handleRequest(HttpRequest request, Context context) {
 		context.getLogger().log("HttpRequest: " + request);
@@ -16,7 +17,6 @@ public class MeanMedianModeHandler implements RequestHandler<HttpRequest, HttpRe
 
 		if (request != null) {
 			String body = request.getBody();
-			Gson gson = new Gson();
 			NumberSeries numberSeries = null;
 
 			try {
