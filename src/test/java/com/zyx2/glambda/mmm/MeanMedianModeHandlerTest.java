@@ -12,6 +12,7 @@ import com.amazonaws.services.lambda.runtime.Context;
  * A simple test harness for locally invoking your Lambda function handler.
  */
 public class MeanMedianModeHandlerTest {
+	private static MeanMedianModeHandler handler = new MeanMedianModeHandler();
 	private static HttpRequest goodRequest;
 	private static HttpRequest badRequest1;
 	private static HttpRequest badRequest2;
@@ -41,45 +42,35 @@ public class MeanMedianModeHandlerTest {
 
 	@Test
 	public void testMeanMedianModeHandlerStatusCodeOkay() {
-		MeanMedianModeHandler handler = new MeanMedianModeHandler();
 		Context ctx = createContext();
-
 		HttpResponse response = handler.handleRequest(goodRequest, ctx);
 		Assert.assertEquals(Constants.HTTP_OK, response.getStatusCode());
 	}
 
 	@Test
 	public void testMeanMedianModeHandlerStatusCodeError() {
-		MeanMedianModeHandler handler = new MeanMedianModeHandler();
 		Context ctx = createContext();
-
 		HttpResponse response = handler.handleRequest(new HttpRequest(), ctx);
 		Assert.assertEquals(Constants.HTTP_BAD_REQUEST, response.getStatusCode());
 	}
 
 	@Test
 	public void testMeanMedianModeHandlerBadBody() {
-		MeanMedianModeHandler handler = new MeanMedianModeHandler();
 		Context ctx = createContext();
-
 		HttpResponse response = handler.handleRequest(badRequest1, ctx);
 		Assert.assertEquals(Constants.HTTP_BAD_REQUEST, response.getStatusCode());
 	}
 
 	@Test
 	public void testMeanMedianModeHandlerUnexpectedData() {
-		MeanMedianModeHandler handler = new MeanMedianModeHandler();
 		Context ctx = createContext();
-
 		HttpResponse response = handler.handleRequest(badRequest2, ctx);
 		Assert.assertEquals(Constants.HTTP_BAD_REQUEST, response.getStatusCode());
 	}
 
 	@Test
 	public void testMeanMedianModeHandlerNullRequest() {
-		MeanMedianModeHandler handler = new MeanMedianModeHandler();
 		Context ctx = createContext();
-
 		HttpResponse response = handler.handleRequest(null, ctx);
 		Assert.assertEquals(Constants.HTTP_BAD_REQUEST, response.getStatusCode());
 	}
