@@ -36,7 +36,7 @@ Assuming JSON request body is contained in file `data.json`:
 
 Invoke the unit tests:
 
-    mvn test
+    mvn clean test
 
 Code coverage reports:
 
