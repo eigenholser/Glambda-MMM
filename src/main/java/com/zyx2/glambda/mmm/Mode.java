@@ -64,7 +64,7 @@ public class Mode {
 	 */
 	private static <K extends Comparable<K>, V extends Comparable<V>> Map<K, V> getSortedMapByValues(
 			final Map<K, V> map) {
-		Map<K, V> mapSortedByValues = new LinkedHashMap<K, V>();
+		Map<K, V> mapSortedByValues = Collections.synchronizedMap(new LinkedHashMap<K, V>());
 
 		// Get all the entries from the original map and put it in a List.
 		List<Map.Entry<K, V>> list = new ArrayList<Entry<K, V>>(map.entrySet());
